@@ -5,7 +5,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/user-attachments/assets/825259a5-6541-41a5-bca8-17c579a46380">
-    <img src="https://github.com/user-attachments/assets/825259a5-6541-41a5-bca8-17c579a46380" alt="Logo" width="200" height="150" style="border-radius:15px;">
+    <img src="https://github.com/user-attachments/assets/825259a5-6541-41a5-bca8-17c579a46380" alt="Logo" width="300" height="250" style="border-radius:15px;">
   </a>
 
   <h3 align="center"> Kanbanate IT · Online task manager </h3>
@@ -23,8 +23,7 @@
   <ol>
     <li><a href="#about"> Sobre el proyecto</a></li>
     <li><a href="#develop-with">Desarrollado con</a></li>
-    <li><a href="#project-structure">Estructu![Gemini_Generated_Image_6gtnod6gtnod6gtn](https://github.com/user-attachments/assets/b6aa6b77-4a07-466b-a6ef-c6f7fba0b8c2)
-ra del proyecto </a></li>
+    <li><a href="#project-structure">Estructura del proyecto </a></li>
     <!--
     <li><a href="#design">Diseño </a></li>
     <li><a href="#preview">Vista previa </a></li>
@@ -282,6 +281,3 @@ A continuación se muestran los pasos a seguir para instalar este proyecto.
 
 [LiveServer.com]: https://img.shields.io/badge/LiveServer-4993CD?logo=visual-studio-code&logoColor=white&style=for-the-badge
 [LiveServer-url]: https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer
-
-
-![kanbanate_logo2](https://github.com/user-attachments/assets/825259a5-6541-41a5-bca8-17c579a46380)
