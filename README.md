@@ -47,7 +47,7 @@ Originalmente se desarrolló este proyecto bajo el marco de un trabajo integrado
 <a id="develop-with"></a>
 ## Desarrollado con:
 
-Para este proyecto se usaron las siguientes técnologias<!--, lenguajes y librerias:-->.
+Para este proyecto se usaron las siguientes técnologias y lenguajes<!-- y librerias:-->.
 
 #### Desarrollo en general:
 
