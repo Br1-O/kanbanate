@@ -132,6 +132,9 @@ La estructura de la base de datos para el proyecto está organizada de la siguie
     INNER JOIN Status_area as s
     ON a.status = s.id;
    ```
+
+
+
   </li>
       <li>
       Update:
@@ -821,6 +824,9 @@ La estructura de la base de datos para el proyecto está organizada de la siguie
    ```sh
     SELECT * FROM `Status_area`;
    ```
+
+![Captura de pantalla 2024-09-04 144901](https://github.com/user-attachments/assets/39582220-272b-4d70-9b49-7186350608c8)
+
   </li>
       <li>
       Update:
@@ -872,6 +878,9 @@ La estructura de la base de datos para el proyecto está organizada de la siguie
    ```sh
     SELECT * FROM `Status_task`;
    ```
+
+![Captura de pantalla 2024-09-04 145011](https://github.com/user-attachments/assets/46430365-92a8-4bab-8058-dc3a08e482b8)
+
   </li>
       <li>
       Update:
@@ -924,6 +933,9 @@ La estructura de la base de datos para el proyecto está organizada de la siguie
    ```sh
     SELECT * FROM `Status_group`;
    ```
+
+![Captura de pantalla 2024-09-04 144944](https://github.com/user-attachments/assets/57615667-39e3-436e-813c-14e5e0542db8)
+
   </li>
       <li>
       Update:
@@ -976,6 +988,9 @@ La estructura de la base de datos para el proyecto está organizada de la siguie
    ```sh
     SELECT * FROM `Status_employee`;
    ```
+
+![Captura de pantalla 2024-09-04 144958](https://github.com/user-attachments/assets/3be9f26b-9ba8-4681-865d-4e9953edb4d1)
+
   </li>
       <li>
       Update:
@@ -1028,6 +1043,7 @@ La estructura de la base de datos para el proyecto está organizada de la siguie
    ```sh
     SELECT * FROM `Relation_types`;
    ```
+
   </li>
       <li>
       Update:
