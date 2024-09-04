@@ -279,13 +279,22 @@ La estructura de la base de datos para el proyecto está organizada de la siguie
       Create:
 
    ```sh
-    CREATE TABLE IF NOT EXISTS `Groups` (
-      `id` INT auto_increment PRIMARY KEY,
-      `area` INT,
-      `status` INT NOT NULL DEFAULT 1,
-      `is_active` TINYINT(1) NOT NULL DEFAULT 1,
-      FOREIGN KEY (`area`) REFERENCES `Areas`(`id`),
-      FOREIGN KEY (`status`) REFERENCES `Status_group`(`id`)
+      CREATE TABLE IF NOT EXISTS `Employees` (
+    `id` INT auto_increment PRIMARY KEY,
+    `name` VARCHAR(50) NOT NULL,
+    `surname` VARCHAR(50) NOT NULL,
+    `DNI` VARCHAR(10) NOT NULL UNIQUE,
+    `email` VARCHAR(50) NOT NULL UNIQUE,
+    `phone` VARCHAR(20),
+    `address` VARCHAR(50),
+    `city` VARCHAR(50),
+    `country` VARCHAR(50),
+    `gender` VARCHAR(10),
+    `status` INT NOT NULL DEFAULT 1,
+    `is_active` TINYINT(1) NOT NULL DEFAULT 1,
+    FOREIGN KEY (`status`) REFERENCES `Status_employee`(`id`),
+    INDEX (`DNI`),
+    INDEX (`email`)
     );
    ```
   </li>
@@ -293,39 +302,37 @@ La estructura de la base de datos para el proyecto está organizada de la siguie
       Insert:
 
    ```sh
-    INSERT INTO `Groups` (area, `status`)
-    VALUES (1, 1),
-           (2, 1),
-           (3, 1);
+    INSERT INTO `Employees` (`name`, surname, DNI, email, phone, address, city, country, gender)
+    VALUES ('Carlos', 'González', '30123456', 'carlos.gonzalez@ejemplo.com', '01112345678', 'Av. Corrientes 1234', 'Buenos Aires', 'Argentina', 'Masculino'),
+           ('María', 'Fernández', '32123456', 'maria.fernandez@ejemplo.com', '01187654321', 'Calle Florida 4321', 'Córdoba', 'Argentina', 'Femenino'),
+           ('Lucía', 'Martínez', '34123456', 'lucia.martinez@ejemplo.com', '01156781234', 'San Martín 567', 'Rosario', 'Argentina', 'Femenino');
    ```
   </li>
     <li>
       Select - Join:
       
    ```sh
-    SELECT g.id, a.name as 'area', s.name as 'status'
-    FROM `Groups` as g
-    JOIN Areas as a
-    ON g.area = a.id
-    JOIN Status_group as s
-    ON g.status = s.id
-    WHERE is_active = 1;
+    SELECT e.name, e.surname, e.DNI, e.email, e.phone, e.address, e.city, e.country, e.gender, s.name as 'status'
+    FROM Employees as e 
+    INNER JOIN Status_employee as s
+    ON e.status = s.id
+    WHERE e.is_active = 1;
    ```
   </li>
       <li>
       Update:
       
    ```sh
-    UPDATE `Groups` SET `status` = 2 WHERE `id`= 1;
-    UPDATE `Groups` SET `is_active` = 0 WHERE `id`= 2;
-    UPDATE `Groups` SET `area` = 3 WHERE `id`= 3;
+      UPDATE `Employees` SET `city` = 'La Plata' WHERE `id`= 1;
+      UPDATE `Employees` SET `email` = 'maria.f.nueva@ejemplo.com' WHERE `id`= 2;
+      UPDATE `Employees` SET `phone` = '01165432178' WHERE `id`= 3; 
    ```
   </li>
       <li>
       Delete:
       
    ```sh
-    DELETE FROM `Groups` WHERE `id`= 1;
+    DELETE FROM `Employees` WHERE `id`= 1;
    ```
   </li>
   </ul>
@@ -339,13 +346,17 @@ La estructura de la base de datos para el proyecto está organizada de la siguie
       Create:
 
    ```sh
-    CREATE TABLE IF NOT EXISTS `Groups` (
-      `id` INT auto_increment PRIMARY KEY,
-      `area` INT,
-      `status` INT NOT NULL DEFAULT 1,
-      `is_active` TINYINT(1) NOT NULL DEFAULT 1,
-      FOREIGN KEY (`area`) REFERENCES `Areas`(`id`),
-      FOREIGN KEY (`status`) REFERENCES `Status_group`(`id`)
+     CREATE TABLE IF NOT EXISTS `Users` (
+    `id` INT auto_increment PRIMARY KEY,
+    `username` VARCHAR(50) NOT NULL UNIQUE,
+    `password` CHAR(80),
+    `employee` INT NOT NULL UNIQUE,
+    `profile_picture` VARCHAR(100),
+    `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    `last_online` DATETIME,
+    `is_active` TINYINT(1) NOT NULL DEFAULT 1,
+    FOREIGN KEY (`employee`) REFERENCES `Employees`(`id`),
+    INDEX (`username`)
     );
    ```
   </li>
@@ -353,39 +364,37 @@ La estructura de la base de datos para el proyecto está organizada de la siguie
       Insert:
 
    ```sh
-    INSERT INTO `Groups` (area, `status`)
-    VALUES (1, 1),
-           (2, 1),
-           (3, 1);
+    INSERT INTO `Users` (username, `password`, employee, profile_picture)
+    VALUES ('cgonzalez', 'contraseña1hash', 1, 'perfil_carlos.jpg'),
+           ('mfernandez', 'contraseña2hash', 2, 'perfil_maria.jpg'),
+           ('lmartinez', 'contraseña3hash', 3, 'perfil_lucia.jpg');
    ```
   </li>
     <li>
       Select - Join:
       
    ```sh
-    SELECT g.id, a.name as 'area', s.name as 'status'
-    FROM `Groups` as g
-    JOIN Areas as a
-    ON g.area = a.id
-    JOIN Status_group as s
-    ON g.status = s.id
-    WHERE is_active = 1;
+    SELECT u.username, u.`password`, CONCAT(e.name, ' ', e.surname) as 'employee', e.email as email
+    FROM Users as u
+    INNER JOIN Employees as e
+    ON u.employee = e.id
+    WHERE u.is_active = 1;
    ```
   </li>
       <li>
       Update:
       
    ```sh
-    UPDATE `Groups` SET `status` = 2 WHERE `id`= 1;
-    UPDATE `Groups` SET `is_active` = 0 WHERE `id`= 2;
-    UPDATE `Groups` SET `area` = 3 WHERE `id`= 3;
+    UPDATE `Users` SET `password` = 'nuevacontraseña1hash' WHERE `id`= 1;
+    UPDATE `Users` SET `last_online` = '2024-09-01 12:34:56' WHERE `id`= 2;
+    UPDATE `Users` SET `profile_picture` = 'nueva_perfil_lucia.jpg' WHERE `id`= 3;
    ```
   </li>
       <li>
       Delete:
       
    ```sh
-    DELETE FROM `Groups` WHERE `id`= 1;
+    DELETE FROM `Users` WHERE `id`= 1;
    ```
   </li>
   </ul>
@@ -399,13 +408,17 @@ La estructura de la base de datos para el proyecto está organizada de la siguie
       Create:
 
    ```sh
-    CREATE TABLE IF NOT EXISTS `Groups` (
-      `id` INT auto_increment PRIMARY KEY,
-      `area` INT,
-      `status` INT NOT NULL DEFAULT 1,
-      `is_active` TINYINT(1) NOT NULL DEFAULT 1,
-      FOREIGN KEY (`area`) REFERENCES `Areas`(`id`),
-      FOREIGN KEY (`status`) REFERENCES `Status_group`(`id`)
+      CREATE TABLE IF NOT EXISTS `Messages` (
+    `id` INT auto_increment PRIMARY KEY,
+    `subject` VARCHAR(20),
+    `content` TEXT NOT NULL,
+    `id_sender` INT NOT NULL,
+    `id_recipient` INT NOT NULL,
+    `date_sent` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    `is_active` TINYINT(1) NOT NULL DEFAULT 1,
+    FOREIGN KEY (`id_sender`) REFERENCES `Users`(`id`),
+    FOREIGN KEY (`id_recipient`) REFERENCES `Users`(`id`),
+    INDEX (`date_sent`)
     );
    ```
   </li>
@@ -413,39 +426,37 @@ La estructura de la base de datos para el proyecto está organizada de la siguie
       Insert:
 
    ```sh
-    INSERT INTO `Groups` (area, `status`)
-    VALUES (1, 1),
-           (2, 1),
-           (3, 1);
+      INSERT INTO `Messages`(subject, content, id_sender, id_recipient, date_sent, is_active)
+      VALUES('Reunión','lorem ipsum neque porro quisquam est qui dolorem ipsum quia dolor sit amet','1','2','2024/08/02','1'),
+      ('Urgente','lorem ipsum neque porro quisquam est qui dolorem ipsum quia dolor sit amet','2','3','2024/08/02','0'),
+      ('Cambios','lorem ipsum neque porro quisquam est qui dolorem ipsum quia dolor sit amet','3','1','2024/08/02','1');
    ```
   </li>
     <li>
       Select - Join:
       
    ```sh
-    SELECT g.id, a.name as 'area', s.name as 'status'
-    FROM `Groups` as g
-    JOIN Areas as a
-    ON g.area = a.id
-    JOIN Status_group as s
-    ON g.status = s.id
-    WHERE is_active = 1;
+    SELECT m.subject, m.content, CONCAT(sender.name, ' ', sender.surname) as 'FROM', CONCAT(recipient.name, ' ', recipient.surname) as 'TO', m.date_sent
+    FROM Messages as m
+    JOIN Employees as sender
+    ON m.id_sender = sender.id
+    JOIN Employees as recipient
+    ON m.id_recipient = recipient.id
+    WHERE m.is_active = 1;
    ```
   </li>
       <li>
       Update:
       
    ```sh
-    UPDATE `Groups` SET `status` = 2 WHERE `id`= 1;
-    UPDATE `Groups` SET `is_active` = 0 WHERE `id`= 2;
-    UPDATE `Groups` SET `area` = 3 WHERE `id`= 3;
+    UPDATE `Messages` SET subject='URGENTE' WHERE id= '2';
    ```
   </li>
       <li>
       Delete:
       
    ```sh
-    DELETE FROM `Groups` WHERE `id`= 1;
+     DELETE FROM `Messages` WHERE subject= 'Cambios';
    ```
   </li>
   </ul>
