@@ -97,7 +97,8 @@ La estructura de la base de datos para el proyecto está organizada de la siguie
   <summary> Areas </summary>
   <ul>
     <li>  
-      <p>Create:</p> 
+      <p>Create:</p>  
+      
       ```sh
       CREATE TABLE IF NOT EXISTS `Areas` (
         `id` INT auto_increment PRIMARY KEY,
@@ -110,7 +111,8 @@ La estructura de la base de datos para el proyecto está organizada de la siguie
       ```
     </li>
     <li>  
-      <p>Insert:</p>
+      <p>Insert:</p>  
+      
       ```sh
       INSERT INTO `Areas`(`name`, `description`)
       VALUES 
@@ -122,7 +124,8 @@ La estructura de la base de datos para el proyecto está organizada de la siguie
       ```
     </li>
     <li>  
-      <p>Select - Join:</p>
+      <p>Select - Join:</p>  
+      
       ```sh
       SELECT g.id, a.name as 'area', s.name as 'status'
       FROM `Groups` as g
