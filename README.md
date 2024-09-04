@@ -133,7 +133,7 @@ La estructura de la base de datos para el proyecto está organizada de la siguie
     ON a.status = s.id;
    ```
 
-
+![Captura de pantalla 2024-09-04 145121](https://github.com/user-attachments/assets/be143dc2-c182-46fb-82f2-54fd66f6e8cb)
 
   </li>
       <li>
@@ -196,6 +196,9 @@ La estructura de la base de datos para el proyecto está organizada de la siguie
     ON t.status = s.id
     WHERE t.is_active = 1;
    ```
+
+![Captura de pantalla 2024-09-04 145140](https://github.com/user-attachments/assets/b9ced7e2-a4cc-4ea7-a56c-9a5e1ef3ab50)
+
   </li>
       <li>
       Update:
@@ -246,7 +249,7 @@ La estructura de la base de datos para el proyecto está organizada de la siguie
       Select - Join:
       
    ```sh
-    SELECT g.id, a.name as 'area', s.name as 'status'
+    SELECT g.id as 'grupo', a.name as 'area', s.name as 'status'
     FROM `Groups` as g
     JOIN Areas as a
     ON g.area = a.id
@@ -254,6 +257,9 @@ La estructura de la base de datos para el proyecto está organizada de la siguie
     ON g.status = s.id
     WHERE is_active = 1;
    ```
+
+![Captura de pantalla 2024-09-04 145109](https://github.com/user-attachments/assets/8d6d9fc1-721f-4b44-bfaa-86e6b5c12ea8)
+
   </li>
       <li>
       Update:
@@ -321,6 +327,9 @@ La estructura de la base de datos para el proyecto está organizada de la siguie
     ON e.status = s.id
     WHERE e.is_active = 1;
    ```
+
+![Captura de pantalla 2024-09-04 145158](https://github.com/user-attachments/assets/d11ac374-fd9b-4f2f-8ce8-69128b1e43b8)
+
   </li>
       <li>
       Update:
@@ -383,6 +392,10 @@ La estructura de la base de datos para el proyecto está organizada de la siguie
     ON u.employee = e.id
     WHERE u.is_active = 1;
    ```
+
+![Captura de pantalla 2024-09-04 145208](https://github.com/user-attachments/assets/cd3e7abe-2776-43e2-b8a0-2c79675ee6c3)
+
+
   </li>
       <li>
       Update:
@@ -447,6 +460,9 @@ La estructura de la base de datos para el proyecto está organizada de la siguie
     ON m.id_recipient = recipient.id
     WHERE m.is_active = 1;
    ```
+
+![Captura de pantalla 2024-09-04 145216](https://github.com/user-attachments/assets/710eeb1c-56ad-4518-8d43-0e82691b59ef)
+
   </li>
       <li>
       Update:
