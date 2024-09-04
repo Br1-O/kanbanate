@@ -95,6 +95,7 @@ La estructura de la base de datos para el proyecto está organizada de la siguie
 
 <details>
   <summary> Areas </summary>
+  <br><br>
   <ul>
     <li>
       Create:
@@ -133,6 +134,20 @@ La estructura de la base de datos para el proyecto está organizada de la siguie
       JOIN Status_group as s
       ON g.status = s.id
       WHERE is_active = 1;
+   ```
+  </li>
+      <li>
+      Update:
+      
+   ```sh
+    UPDATE `Areas` SET description='área encargada de comercializar los productos.' WHERE name='Ventas';
+   ```
+  </li>
+      <li>
+      Delete:
+      
+   ```sh
+    DELETE FROM `Areas` WHERE name='Producción';
    ```
   </li>
   </ul>
