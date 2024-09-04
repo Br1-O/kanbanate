@@ -5,7 +5,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/user-attachments/assets/825259a5-6541-41a5-bca8-17c579a46380">
-    <img src="https://github.com/user-attachments/assets/825259a5-6541-41a5-bca8-17c579a46380" alt="Logo" width="350" height="250" style="border-radius:15px;">
+    <img src="https://github.com/user-attachments/assets/825259a5-6541-41a5-bca8-17c579a46380" alt="Logo" width="250" height="150" style="border-radius:15px;">
   </a>
 
   <h3 align="center"> Kanbanate IT · Online task manager </h3>
