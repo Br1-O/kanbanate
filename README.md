@@ -98,16 +98,16 @@ La estructura de la base de datos para el proyecto está organizada de la siguie
   <ul>
     <li>  
       <p> Create: </p>  
-        ```sh
-          CREATE TABLE IF NOT EXISTS `Areas` (
-          `id` INT auto_increment PRIMARY KEY,
-          `name` VARCHAR(50) NOT NULL UNIQUE,
-          `description` VARCHAR(100),
-          `status` INT NOT NULL DEFAULT 1,
-          FOREIGN KEY (`status`) REFERENCES `Status_area`(`id`),
-          INDEX (`name`)
-          );
-        ```
+```sh
+CREATE TABLE IF NOT EXISTS `Areas` (
+`id` INT auto_increment PRIMARY KEY,
+`name` VARCHAR(50) NOT NULL UNIQUE,
+`description` VARCHAR(100),
+`status` INT NOT NULL DEFAULT 1,
+FOREIGN KEY (`status`) REFERENCES `Status_area`(`id`),
+INDEX (`name`)
+);
+```
     </li>
     <li>  
       <p> Insert: </p>  
