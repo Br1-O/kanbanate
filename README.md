@@ -96,7 +96,7 @@ La estructura de la base de datos para el proyecto está organizada de la siguie
 <details>
   <summary> Areas </summary>
   <ul>
-    <li>  
+    <li>
       Create:
       
       ```sh
@@ -110,8 +110,8 @@ La estructura de la base de datos para el proyecto está organizada de la siguie
       );
       ```
   </li>
-  <li>  
-    Insert:  
+    <li>
+      Insert:
       
       ```sh
       INSERT INTO `Areas`(`name`, `description`)
@@ -123,8 +123,8 @@ La estructura de la base de datos para el proyecto está organizada de la siguie
         ('Contabilidad', 'Llevan el registro contable de la actividad financiera de la empresa.');
       ```
   </li>
-  <li>  
-    Select - Join:
+    <li>
+      Select - Join:
       
       ```sh
       SELECT g.id, a.name as 'area', s.name as 'status'
@@ -135,8 +135,8 @@ La estructura de la base de datos para el proyecto está organizada de la siguie
       ON g.status = s.id
       WHERE is_active = 1;
       ```
-  </li>
-</ul>
+    </li>
+  </ul>
 </details>
 
 - Tasks
