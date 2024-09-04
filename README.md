@@ -91,31 +91,28 @@ La estructura de la base de datos para el proyecto está organizada de la siguie
 
 ![DB_Kanban](https://github.com/user-attachments/assets/eddc9555-ab9f-497e-9324-99a7f53af68b)
 
-Tablas de entidades:
+- **Tablas de entidades:**
+- Areas
+- Tasks
+- Groups
+- Employees
+- Users
+- Messages
 
-Areas
-Tasks
-Groups
-Employees
-Users
-Messages
+- **Tablas de relaciones:**
+- rel_Areas_Tasks
+- rel_Groups_Tasks
+- rel_Groups_Employees
+- rel_Users_Tasks
+- rel_Users_Actions
 
-Tablas de relaciones:
-
-rel_Areas_Tasks
-rel_Groups_Tasks
-rel_Groups_Employees
-rel_Users_Tasks
-rel_Users_Actions
-
-Tablas de estatus, tipos de relaciones y acciones:
-
-Status_area
-Status_task
-Status_group
-Status_employee
-Relation_types
-Actions
+- **Tablas de estatus, tipos de relaciones y acciones:**
+- Status_area
+- Status_task
+- Status_group
+- Status_employee
+- Relation_types
+- Actions
 
 <!--
 ```plaintext
@@ -135,8 +132,7 @@ Actions
 ```
 -->
 
-<p align="right">(<a href="#readme-top">Volver al in![DB_Kanban](https://github.com/user-attachments/assets/1e58100b-bdd7-4c81-9a75-1b8d0ac167aa)
-icio</a>)</p>
+<p align="right">(<a href="#readme-top">Volver al inicio</a>)</p>
 
 <!--
 <a id="design"></a>
