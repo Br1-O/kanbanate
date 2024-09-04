@@ -271,24 +271,849 @@ La estructura de la base de datos para el proyecto está organizada de la siguie
   </ul>
 </details>
 
-- Employees
-- Users
-- Messages
+<details>
+  <summary> Employees </summary>
+  <br>
+  <ul>
+    <li>
+      Create:
+
+   ```sh
+    CREATE TABLE IF NOT EXISTS `Groups` (
+      `id` INT auto_increment PRIMARY KEY,
+      `area` INT,
+      `status` INT NOT NULL DEFAULT 1,
+      `is_active` TINYINT(1) NOT NULL DEFAULT 1,
+      FOREIGN KEY (`area`) REFERENCES `Areas`(`id`),
+      FOREIGN KEY (`status`) REFERENCES `Status_group`(`id`)
+    );
+   ```
+  </li>
+    <li>
+      Insert:
+
+   ```sh
+    INSERT INTO `Groups` (area, `status`)
+    VALUES (1, 1),
+           (2, 1),
+           (3, 1);
+   ```
+  </li>
+    <li>
+      Select - Join:
+      
+   ```sh
+    SELECT g.id, a.name as 'area', s.name as 'status'
+    FROM `Groups` as g
+    JOIN Areas as a
+    ON g.area = a.id
+    JOIN Status_group as s
+    ON g.status = s.id
+    WHERE is_active = 1;
+   ```
+  </li>
+      <li>
+      Update:
+      
+   ```sh
+    UPDATE `Groups` SET `status` = 2 WHERE `id`= 1;
+    UPDATE `Groups` SET `is_active` = 0 WHERE `id`= 2;
+    UPDATE `Groups` SET `area` = 3 WHERE `id`= 3;
+   ```
+  </li>
+      <li>
+      Delete:
+      
+   ```sh
+    DELETE FROM `Groups` WHERE `id`= 1;
+   ```
+  </li>
+  </ul>
+</details>
+
+<details>
+  <summary> Users </summary>
+  <br>
+  <ul>
+    <li>
+      Create:
+
+   ```sh
+    CREATE TABLE IF NOT EXISTS `Groups` (
+      `id` INT auto_increment PRIMARY KEY,
+      `area` INT,
+      `status` INT NOT NULL DEFAULT 1,
+      `is_active` TINYINT(1) NOT NULL DEFAULT 1,
+      FOREIGN KEY (`area`) REFERENCES `Areas`(`id`),
+      FOREIGN KEY (`status`) REFERENCES `Status_group`(`id`)
+    );
+   ```
+  </li>
+    <li>
+      Insert:
+
+   ```sh
+    INSERT INTO `Groups` (area, `status`)
+    VALUES (1, 1),
+           (2, 1),
+           (3, 1);
+   ```
+  </li>
+    <li>
+      Select - Join:
+      
+   ```sh
+    SELECT g.id, a.name as 'area', s.name as 'status'
+    FROM `Groups` as g
+    JOIN Areas as a
+    ON g.area = a.id
+    JOIN Status_group as s
+    ON g.status = s.id
+    WHERE is_active = 1;
+   ```
+  </li>
+      <li>
+      Update:
+      
+   ```sh
+    UPDATE `Groups` SET `status` = 2 WHERE `id`= 1;
+    UPDATE `Groups` SET `is_active` = 0 WHERE `id`= 2;
+    UPDATE `Groups` SET `area` = 3 WHERE `id`= 3;
+   ```
+  </li>
+      <li>
+      Delete:
+      
+   ```sh
+    DELETE FROM `Groups` WHERE `id`= 1;
+   ```
+  </li>
+  </ul>
+</details>
+
+<details>
+  <summary> Messages </summary>
+  <br>
+  <ul>
+    <li>
+      Create:
+
+   ```sh
+    CREATE TABLE IF NOT EXISTS `Groups` (
+      `id` INT auto_increment PRIMARY KEY,
+      `area` INT,
+      `status` INT NOT NULL DEFAULT 1,
+      `is_active` TINYINT(1) NOT NULL DEFAULT 1,
+      FOREIGN KEY (`area`) REFERENCES `Areas`(`id`),
+      FOREIGN KEY (`status`) REFERENCES `Status_group`(`id`)
+    );
+   ```
+  </li>
+    <li>
+      Insert:
+
+   ```sh
+    INSERT INTO `Groups` (area, `status`)
+    VALUES (1, 1),
+           (2, 1),
+           (3, 1);
+   ```
+  </li>
+    <li>
+      Select - Join:
+      
+   ```sh
+    SELECT g.id, a.name as 'area', s.name as 'status'
+    FROM `Groups` as g
+    JOIN Areas as a
+    ON g.area = a.id
+    JOIN Status_group as s
+    ON g.status = s.id
+    WHERE is_active = 1;
+   ```
+  </li>
+      <li>
+      Update:
+      
+   ```sh
+    UPDATE `Groups` SET `status` = 2 WHERE `id`= 1;
+    UPDATE `Groups` SET `is_active` = 0 WHERE `id`= 2;
+    UPDATE `Groups` SET `area` = 3 WHERE `id`= 3;
+   ```
+  </li>
+      <li>
+      Delete:
+      
+   ```sh
+    DELETE FROM `Groups` WHERE `id`= 1;
+   ```
+  </li>
+  </ul>
+</details>
 
 **Tablas de relaciones:**
-- rel_Areas_Tasks
-- rel_Groups_Tasks
-- rel_Groups_Employees
-- rel_Users_Tasks
-- rel_Users_Actions
+
+<details>
+  <summary> rel_Areas_Tasks </summary>
+  <br>
+  <ul>
+    <li>
+      Create:
+
+   ```sh
+    CREATE TABLE IF NOT EXISTS `Groups` (
+      `id` INT auto_increment PRIMARY KEY,
+      `area` INT,
+      `status` INT NOT NULL DEFAULT 1,
+      `is_active` TINYINT(1) NOT NULL DEFAULT 1,
+      FOREIGN KEY (`area`) REFERENCES `Areas`(`id`),
+      FOREIGN KEY (`status`) REFERENCES `Status_group`(`id`)
+    );
+   ```
+  </li>
+    <li>
+      Insert:
+
+   ```sh
+    INSERT INTO `Groups` (area, `status`)
+    VALUES (1, 1),
+           (2, 1),
+           (3, 1);
+   ```
+  </li>
+    <li>
+      Select - Join:
+      
+   ```sh
+    SELECT g.id, a.name as 'area', s.name as 'status'
+    FROM `Groups` as g
+    JOIN Areas as a
+    ON g.area = a.id
+    JOIN Status_group as s
+    ON g.status = s.id
+    WHERE is_active = 1;
+   ```
+  </li>
+      <li>
+      Update:
+      
+   ```sh
+    UPDATE `Groups` SET `status` = 2 WHERE `id`= 1;
+    UPDATE `Groups` SET `is_active` = 0 WHERE `id`= 2;
+    UPDATE `Groups` SET `area` = 3 WHERE `id`= 3;
+   ```
+  </li>
+      <li>
+      Delete:
+      
+   ```sh
+    DELETE FROM `Groups` WHERE `id`= 1;
+   ```
+  </li>
+  </ul>
+</details>
+
+<details>
+  <summary> rel_Groups_Tasks </summary>
+  <br>
+  <ul>
+    <li>
+      Create:
+
+   ```sh
+    CREATE TABLE IF NOT EXISTS `Groups` (
+      `id` INT auto_increment PRIMARY KEY,
+      `area` INT,
+      `status` INT NOT NULL DEFAULT 1,
+      `is_active` TINYINT(1) NOT NULL DEFAULT 1,
+      FOREIGN KEY (`area`) REFERENCES `Areas`(`id`),
+      FOREIGN KEY (`status`) REFERENCES `Status_group`(`id`)
+    );
+   ```
+  </li>
+    <li>
+      Insert:
+
+   ```sh
+    INSERT INTO `Groups` (area, `status`)
+    VALUES (1, 1),
+           (2, 1),
+           (3, 1);
+   ```
+  </li>
+    <li>
+      Select - Join:
+      
+   ```sh
+    SELECT g.id, a.name as 'area', s.name as 'status'
+    FROM `Groups` as g
+    JOIN Areas as a
+    ON g.area = a.id
+    JOIN Status_group as s
+    ON g.status = s.id
+    WHERE is_active = 1;
+   ```
+  </li>
+      <li>
+      Update:
+      
+   ```sh
+    UPDATE `Groups` SET `status` = 2 WHERE `id`= 1;
+    UPDATE `Groups` SET `is_active` = 0 WHERE `id`= 2;
+    UPDATE `Groups` SET `area` = 3 WHERE `id`= 3;
+   ```
+  </li>
+      <li>
+      Delete:
+      
+   ```sh
+    DELETE FROM `Groups` WHERE `id`= 1;
+   ```
+  </li>
+  </ul>
+</details>
+
+<details>
+  <summary> rel_Groups_Employees </summary>
+  <br>
+  <ul>
+    <li>
+      Create:
+
+   ```sh
+    CREATE TABLE IF NOT EXISTS `Groups` (
+      `id` INT auto_increment PRIMARY KEY,
+      `area` INT,
+      `status` INT NOT NULL DEFAULT 1,
+      `is_active` TINYINT(1) NOT NULL DEFAULT 1,
+      FOREIGN KEY (`area`) REFERENCES `Areas`(`id`),
+      FOREIGN KEY (`status`) REFERENCES `Status_group`(`id`)
+    );
+   ```
+  </li>
+    <li>
+      Insert:
+
+   ```sh
+    INSERT INTO `Groups` (area, `status`)
+    VALUES (1, 1),
+           (2, 1),
+           (3, 1);
+   ```
+  </li>
+    <li>
+      Select - Join:
+      
+   ```sh
+    SELECT g.id, a.name as 'area', s.name as 'status'
+    FROM `Groups` as g
+    JOIN Areas as a
+    ON g.area = a.id
+    JOIN Status_group as s
+    ON g.status = s.id
+    WHERE is_active = 1;
+   ```
+  </li>
+      <li>
+      Update:
+      
+   ```sh
+    UPDATE `Groups` SET `status` = 2 WHERE `id`= 1;
+    UPDATE `Groups` SET `is_active` = 0 WHERE `id`= 2;
+    UPDATE `Groups` SET `area` = 3 WHERE `id`= 3;
+   ```
+  </li>
+      <li>
+      Delete:
+      
+   ```sh
+    DELETE FROM `Groups` WHERE `id`= 1;
+   ```
+  </li>
+  </ul>
+</details>
+
+<details>
+  <summary> rel_Users_Tasks </summary>
+  <br>
+  <ul>
+    <li>
+      Create:
+
+   ```sh
+    CREATE TABLE IF NOT EXISTS `Groups` (
+      `id` INT auto_increment PRIMARY KEY,
+      `area` INT,
+      `status` INT NOT NULL DEFAULT 1,
+      `is_active` TINYINT(1) NOT NULL DEFAULT 1,
+      FOREIGN KEY (`area`) REFERENCES `Areas`(`id`),
+      FOREIGN KEY (`status`) REFERENCES `Status_group`(`id`)
+    );
+   ```
+  </li>
+    <li>
+      Insert:
+
+   ```sh
+    INSERT INTO `Groups` (area, `status`)
+    VALUES (1, 1),
+           (2, 1),
+           (3, 1);
+   ```
+  </li>
+    <li>
+      Select - Join:
+      
+   ```sh
+    SELECT g.id, a.name as 'area', s.name as 'status'
+    FROM `Groups` as g
+    JOIN Areas as a
+    ON g.area = a.id
+    JOIN Status_group as s
+    ON g.status = s.id
+    WHERE is_active = 1;
+   ```
+  </li>
+      <li>
+      Update:
+      
+   ```sh
+    UPDATE `Groups` SET `status` = 2 WHERE `id`= 1;
+    UPDATE `Groups` SET `is_active` = 0 WHERE `id`= 2;
+    UPDATE `Groups` SET `area` = 3 WHERE `id`= 3;
+   ```
+  </li>
+      <li>
+      Delete:
+      
+   ```sh
+    DELETE FROM `Groups` WHERE `id`= 1;
+   ```
+  </li>
+  </ul>
+</details>
+
+<details>
+  <summary> rel_Users_Actions </summary>
+  <br>
+  <ul>
+    <li>
+      Create:
+
+   ```sh
+    CREATE TABLE IF NOT EXISTS `Groups` (
+      `id` INT auto_increment PRIMARY KEY,
+      `area` INT,
+      `status` INT NOT NULL DEFAULT 1,
+      `is_active` TINYINT(1) NOT NULL DEFAULT 1,
+      FOREIGN KEY (`area`) REFERENCES `Areas`(`id`),
+      FOREIGN KEY (`status`) REFERENCES `Status_group`(`id`)
+    );
+   ```
+  </li>
+    <li>
+      Insert:
+
+   ```sh
+    INSERT INTO `Groups` (area, `status`)
+    VALUES (1, 1),
+           (2, 1),
+           (3, 1);
+   ```
+  </li>
+    <li>
+      Select - Join:
+      
+   ```sh
+    SELECT g.id, a.name as 'area', s.name as 'status'
+    FROM `Groups` as g
+    JOIN Areas as a
+    ON g.area = a.id
+    JOIN Status_group as s
+    ON g.status = s.id
+    WHERE is_active = 1;
+   ```
+  </li>
+      <li>
+      Update:
+      
+   ```sh
+    UPDATE `Groups` SET `status` = 2 WHERE `id`= 1;
+    UPDATE `Groups` SET `is_active` = 0 WHERE `id`= 2;
+    UPDATE `Groups` SET `area` = 3 WHERE `id`= 3;
+   ```
+  </li>
+      <li>
+      Delete:
+      
+   ```sh
+    DELETE FROM `Groups` WHERE `id`= 1;
+   ```
+  </li>
+  </ul>
+</details>
 
 **Tablas de estatus, tipos de relaciones y acciones:**
-- Status_area
-- Status_task
-- Status_group
-- Status_employee
-- Relation_types
-- Actions
+
+<details>
+  <summary> Status_area </summary>
+  <br>
+  <ul>
+    <li>
+      Create:
+
+   ```sh
+    CREATE TABLE IF NOT EXISTS `Groups` (
+      `id` INT auto_increment PRIMARY KEY,
+      `area` INT,
+      `status` INT NOT NULL DEFAULT 1,
+      `is_active` TINYINT(1) NOT NULL DEFAULT 1,
+      FOREIGN KEY (`area`) REFERENCES `Areas`(`id`),
+      FOREIGN KEY (`status`) REFERENCES `Status_group`(`id`)
+    );
+   ```
+  </li>
+    <li>
+      Insert:
+
+   ```sh
+    INSERT INTO `Groups` (area, `status`)
+    VALUES (1, 1),
+           (2, 1),
+           (3, 1);
+   ```
+  </li>
+    <li>
+      Select - Join:
+      
+   ```sh
+    SELECT g.id, a.name as 'area', s.name as 'status'
+    FROM `Groups` as g
+    JOIN Areas as a
+    ON g.area = a.id
+    JOIN Status_group as s
+    ON g.status = s.id
+    WHERE is_active = 1;
+   ```
+  </li>
+      <li>
+      Update:
+      
+   ```sh
+    UPDATE `Groups` SET `status` = 2 WHERE `id`= 1;
+    UPDATE `Groups` SET `is_active` = 0 WHERE `id`= 2;
+    UPDATE `Groups` SET `area` = 3 WHERE `id`= 3;
+   ```
+  </li>
+      <li>
+      Delete:
+      
+   ```sh
+    DELETE FROM `Groups` WHERE `id`= 1;
+   ```
+  </li>
+  </ul>
+</details>
+
+<details>
+  <summary> Status_task </summary>
+  <br>
+  <ul>
+    <li>
+      Create:
+
+   ```sh
+    CREATE TABLE IF NOT EXISTS `Groups` (
+      `id` INT auto_increment PRIMARY KEY,
+      `area` INT,
+      `status` INT NOT NULL DEFAULT 1,
+      `is_active` TINYINT(1) NOT NULL DEFAULT 1,
+      FOREIGN KEY (`area`) REFERENCES `Areas`(`id`),
+      FOREIGN KEY (`status`) REFERENCES `Status_group`(`id`)
+    );
+   ```
+  </li>
+    <li>
+      Insert:
+
+   ```sh
+    INSERT INTO `Groups` (area, `status`)
+    VALUES (1, 1),
+           (2, 1),
+           (3, 1);
+   ```
+  </li>
+    <li>
+      Select - Join:
+      
+   ```sh
+    SELECT g.id, a.name as 'area', s.name as 'status'
+    FROM `Groups` as g
+    JOIN Areas as a
+    ON g.area = a.id
+    JOIN Status_group as s
+    ON g.status = s.id
+    WHERE is_active = 1;
+   ```
+  </li>
+      <li>
+      Update:
+      
+   ```sh
+    UPDATE `Groups` SET `status` = 2 WHERE `id`= 1;
+    UPDATE `Groups` SET `is_active` = 0 WHERE `id`= 2;
+    UPDATE `Groups` SET `area` = 3 WHERE `id`= 3;
+   ```
+  </li>
+      <li>
+      Delete:
+      
+   ```sh
+    DELETE FROM `Groups` WHERE `id`= 1;
+   ```
+  </li>
+  </ul>
+</details>
+
+<details>
+  <summary> Status_group </summary>
+  <br>
+  <ul>
+    <li>
+      Create:
+
+   ```sh
+    CREATE TABLE IF NOT EXISTS `Groups` (
+      `id` INT auto_increment PRIMARY KEY,
+      `area` INT,
+      `status` INT NOT NULL DEFAULT 1,
+      `is_active` TINYINT(1) NOT NULL DEFAULT 1,
+      FOREIGN KEY (`area`) REFERENCES `Areas`(`id`),
+      FOREIGN KEY (`status`) REFERENCES `Status_group`(`id`)
+    );
+   ```
+  </li>
+    <li>
+      Insert:
+
+   ```sh
+    INSERT INTO `Groups` (area, `status`)
+    VALUES (1, 1),
+           (2, 1),
+           (3, 1);
+   ```
+  </li>
+    <li>
+      Select - Join:
+      
+   ```sh
+    SELECT g.id, a.name as 'area', s.name as 'status'
+    FROM `Groups` as g
+    JOIN Areas as a
+    ON g.area = a.id
+    JOIN Status_group as s
+    ON g.status = s.id
+    WHERE is_active = 1;
+   ```
+  </li>
+      <li>
+      Update:
+      
+   ```sh
+    UPDATE `Groups` SET `status` = 2 WHERE `id`= 1;
+    UPDATE `Groups` SET `is_active` = 0 WHERE `id`= 2;
+    UPDATE `Groups` SET `area` = 3 WHERE `id`= 3;
+   ```
+  </li>
+      <li>
+      Delete:
+      
+   ```sh
+    DELETE FROM `Groups` WHERE `id`= 1;
+   ```
+  </li>
+  </ul>
+</details>
+
+<details>
+  <summary> Status_employee </summary>
+  <br>
+  <ul>
+    <li>
+      Create:
+
+   ```sh
+    CREATE TABLE IF NOT EXISTS `Groups` (
+      `id` INT auto_increment PRIMARY KEY,
+      `area` INT,
+      `status` INT NOT NULL DEFAULT 1,
+      `is_active` TINYINT(1) NOT NULL DEFAULT 1,
+      FOREIGN KEY (`area`) REFERENCES `Areas`(`id`),
+      FOREIGN KEY (`status`) REFERENCES `Status_group`(`id`)
+    );
+   ```
+  </li>
+    <li>
+      Insert:
+
+   ```sh
+    INSERT INTO `Groups` (area, `status`)
+    VALUES (1, 1),
+           (2, 1),
+           (3, 1);
+   ```
+  </li>
+    <li>
+      Select - Join:
+      
+   ```sh
+    SELECT g.id, a.name as 'area', s.name as 'status'
+    FROM `Groups` as g
+    JOIN Areas as a
+    ON g.area = a.id
+    JOIN Status_group as s
+    ON g.status = s.id
+    WHERE is_active = 1;
+   ```
+  </li>
+      <li>
+      Update:
+      
+   ```sh
+    UPDATE `Groups` SET `status` = 2 WHERE `id`= 1;
+    UPDATE `Groups` SET `is_active` = 0 WHERE `id`= 2;
+    UPDATE `Groups` SET `area` = 3 WHERE `id`= 3;
+   ```
+  </li>
+      <li>
+      Delete:
+      
+   ```sh
+    DELETE FROM `Groups` WHERE `id`= 1;
+   ```
+  </li>
+  </ul>
+</details>
+
+<details>
+  <summary> Relation_types </summary>
+  <br>
+  <ul>
+    <li>
+      Create:
+
+   ```sh
+    CREATE TABLE IF NOT EXISTS `Groups` (
+      `id` INT auto_increment PRIMARY KEY,
+      `area` INT,
+      `status` INT NOT NULL DEFAULT 1,
+      `is_active` TINYINT(1) NOT NULL DEFAULT 1,
+      FOREIGN KEY (`area`) REFERENCES `Areas`(`id`),
+      FOREIGN KEY (`status`) REFERENCES `Status_group`(`id`)
+    );
+   ```
+  </li>
+    <li>
+      Insert:
+
+   ```sh
+    INSERT INTO `Groups` (area, `status`)
+    VALUES (1, 1),
+           (2, 1),
+           (3, 1);
+   ```
+  </li>
+    <li>
+      Select - Join:
+      
+   ```sh
+    SELECT g.id, a.name as 'area', s.name as 'status'
+    FROM `Groups` as g
+    JOIN Areas as a
+    ON g.area = a.id
+    JOIN Status_group as s
+    ON g.status = s.id
+    WHERE is_active = 1;
+   ```
+  </li>
+      <li>
+      Update:
+      
+   ```sh
+    UPDATE `Groups` SET `status` = 2 WHERE `id`= 1;
+    UPDATE `Groups` SET `is_active` = 0 WHERE `id`= 2;
+    UPDATE `Groups` SET `area` = 3 WHERE `id`= 3;
+   ```
+  </li>
+      <li>
+      Delete:
+      
+   ```sh
+    DELETE FROM `Groups` WHERE `id`= 1;
+   ```
+  </li>
+  </ul>
+</details>
+
+<details>
+  <summary> Actions </summary>
+  <br>
+  <ul>
+    <li>
+      Create:
+
+   ```sh
+    CREATE TABLE IF NOT EXISTS `Groups` (
+      `id` INT auto_increment PRIMARY KEY,
+      `area` INT,
+      `status` INT NOT NULL DEFAULT 1,
+      `is_active` TINYINT(1) NOT NULL DEFAULT 1,
+      FOREIGN KEY (`area`) REFERENCES `Areas`(`id`),
+      FOREIGN KEY (`status`) REFERENCES `Status_group`(`id`)
+    );
+   ```
+  </li>
+    <li>
+      Insert:
+
+   ```sh
+    INSERT INTO `Groups` (area, `status`)
+    VALUES (1, 1),
+           (2, 1),
+           (3, 1);
+   ```
+  </li>
+    <li>
+      Select - Join:
+      
+   ```sh
+    SELECT g.id, a.name as 'area', s.name as 'status'
+    FROM `Groups` as g
+    JOIN Areas as a
+    ON g.area = a.id
+    JOIN Status_group as s
+    ON g.status = s.id
+    WHERE is_active = 1;
+   ```
+  </li>
+      <li>
+      Update:
+      
+   ```sh
+    UPDATE `Groups` SET `status` = 2 WHERE `id`= 1;
+    UPDATE `Groups` SET `is_active` = 0 WHERE `id`= 2;
+    UPDATE `Groups` SET `area` = 3 WHERE `id`= 3;
+   ```
+  </li>
+      <li>
+      Delete:
+      
+   ```sh
+    DELETE FROM `Groups` WHERE `id`= 1;
+   ```
+  </li>
+  </ul>
+</details>
 
 <!--
 ```plaintext
