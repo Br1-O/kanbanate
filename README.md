@@ -11,7 +11,7 @@
   <h3 align="center"> Kanbanate IT · Online task manager </h3>
 
   <p align="center">
-    Este proyecto es un sistema de gestión de tareas al estilo Kanban de forma online con sistema de cuentas y mensajes para los usuarios.
+    Sistema de gestión de tareas para proyectos colaborativos
     <br />
     <!--<a href="https://br1-o.github.io/bakery-store"><strong> Ver sitio en producción »</strong></a> -->
   </p>
