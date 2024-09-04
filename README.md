@@ -462,7 +462,7 @@ La estructura de la base de datos para el proyecto está organizada de la siguie
   </ul>
 </details>
 
-<br>
+
 **Tablas de relaciones:**
 
 <details>
@@ -765,7 +765,7 @@ La estructura de la base de datos para el proyecto está organizada de la siguie
   </ul>
 </details>
 
-<br>
+
 **Tablas de estatus, tipos de relaciones y acciones:**
 
 <details>
@@ -931,13 +931,10 @@ La estructura de la base de datos para el proyecto está organizada de la siguie
       Create:
 
    ```sh
-    CREATE TABLE IF NOT EXISTS `Groups` (
+    CREATE TABLE IF NOT EXISTS `Status_employee` (
       `id` INT auto_increment PRIMARY KEY,
-      `area` INT,
-      `status` INT NOT NULL DEFAULT 1,
-      `is_active` TINYINT(1) NOT NULL DEFAULT 1,
-      FOREIGN KEY (`area`) REFERENCES `Areas`(`id`),
-      FOREIGN KEY (`status`) REFERENCES `Status_group`(`id`)
+      `name` VARCHAR(50) NOT NULL UNIQUE,
+      `description` VARCHAR(100)
     );
    ```
   </li>
@@ -945,39 +942,34 @@ La estructura de la base de datos para el proyecto está organizada de la siguie
       Insert:
 
    ```sh
-    INSERT INTO `Groups` (area, `status`)
-    VALUES (1, 1),
-           (2, 1),
-           (3, 1);
+    INSERT INTO `Status_employee`(name, description) 
+    VALUES ('disponible', 'El empleado se encuentra disponible para trabajar en una nueva tarea.'), 
+    ('ocupado', 'El empleado está actualmente trabajando en una tarea.'),
+    ('de vacaciones', 'El empleado está de vacaciones.'), 
+    ('con licencia', 'El empleado está bajo algún tipo de licencia.'), 
+    ('no disponible', 'El empleado temporalmente no está disponible ni trabajando en ninguna tarea.'), 
+    ('retirado', 'El empleado ya no se encuentra trabajando en la organización.');
    ```
   </li>
     <li>
-      Select - Join:
+      Select:
       
    ```sh
-    SELECT g.id, a.name as 'area', s.name as 'status'
-    FROM `Groups` as g
-    JOIN Areas as a
-    ON g.area = a.id
-    JOIN Status_group as s
-    ON g.status = s.id
-    WHERE is_active = 1;
+    SELECT * FROM `Status_employee`;
    ```
   </li>
       <li>
       Update:
       
    ```sh
-    UPDATE `Groups` SET `status` = 2 WHERE `id`= 1;
-    UPDATE `Groups` SET `is_active` = 0 WHERE `id`= 2;
-    UPDATE `Groups` SET `area` = 3 WHERE `id`= 3;
+    UPDATE `Status_employee` SET name = 'nombre', description = 'descripcion' WHERE id = 5; 
    ```
   </li>
       <li>
       Delete:
       
    ```sh
-    DELETE FROM `Groups` WHERE `id`= 1;
+    DELETE FROM `Status_employee` WHERE id<10;
    ```
   </li>
   </ul>
@@ -991,13 +983,10 @@ La estructura de la base de datos para el proyecto está organizada de la siguie
       Create:
 
    ```sh
-    CREATE TABLE IF NOT EXISTS `Groups` (
+    CREATE TABLE IF NOT EXISTS `Relation_types` (
       `id` INT auto_increment PRIMARY KEY,
-      `area` INT,
-      `status` INT NOT NULL DEFAULT 1,
-      `is_active` TINYINT(1) NOT NULL DEFAULT 1,
-      FOREIGN KEY (`area`) REFERENCES `Areas`(`id`),
-      FOREIGN KEY (`status`) REFERENCES `Status_group`(`id`)
+      `name` VARCHAR(50) NOT NULL UNIQUE,
+      `description` VARCHAR(100)
     );
    ```
   </li>
@@ -1005,39 +994,34 @@ La estructura de la base de datos para el proyecto está organizada de la siguie
       Insert:
 
    ```sh
-    INSERT INTO `Groups` (area, `status`)
-    VALUES (1, 1),
-           (2, 1),
-           (3, 1);
+    INSERT INTO `Relation_types`(name, description) 
+    VALUES ('recién asignada', 'El usuario tiene la tarea asignada.'), 
+    ('bajo resolución', 'El usuario está trabajando en la tarea.'),
+    ('completa', 'La tarea ya fue resuelta por el usuario.'), 
+    ('cancelada', 'La tarea fue cancelada por el usuario.'), 
+    ('archivada', 'La tarea fue resuelta hace más de 30 días y el usuario la archivó para registro historico.'),
+    ('Modificada', 'El usuario editó el estado o algún campo de la tarea.');
    ```
   </li>
     <li>
-      Select - Join:
+      Select:
       
    ```sh
-    SELECT g.id, a.name as 'area', s.name as 'status'
-    FROM `Groups` as g
-    JOIN Areas as a
-    ON g.area = a.id
-    JOIN Status_group as s
-    ON g.status = s.id
-    WHERE is_active = 1;
+    SELECT * FROM `Relation_types`;
    ```
   </li>
       <li>
       Update:
       
    ```sh
-    UPDATE `Groups` SET `status` = 2 WHERE `id`= 1;
-    UPDATE `Groups` SET `is_active` = 0 WHERE `id`= 2;
-    UPDATE `Groups` SET `area` = 3 WHERE `id`= 3;
+    UPDATE `Relation_types` SET name = 'nombre', description = 'descripcion' WHERE id = 8; 
    ```
   </li>
       <li>
       Delete:
       
    ```sh
-    DELETE FROM `Groups` WHERE `id`= 1;
+    DELETE FROM `Relation_types` WHERE id<10;
    ```
   </li>
   </ul>
@@ -1051,13 +1035,10 @@ La estructura de la base de datos para el proyecto está organizada de la siguie
       Create:
 
    ```sh
-    CREATE TABLE IF NOT EXISTS `Groups` (
+    CREATE TABLE IF NOT EXISTS `Actions` (
       `id` INT auto_increment PRIMARY KEY,
-      `area` INT,
-      `status` INT NOT NULL DEFAULT 1,
-      `is_active` TINYINT(1) NOT NULL DEFAULT 1,
-      FOREIGN KEY (`area`) REFERENCES `Areas`(`id`),
-      FOREIGN KEY (`status`) REFERENCES `Status_group`(`id`)
+      `name` VARCHAR(50) NOT NULL UNIQUE,
+      `description` VARCHAR(100)
     );
    ```
   </li>
@@ -1065,39 +1046,33 @@ La estructura de la base de datos para el proyecto está organizada de la siguie
       Insert:
 
    ```sh
-    INSERT INTO `Groups` (area, `status`)
-    VALUES (1, 1),
-           (2, 1),
-           (3, 1);
+    INSERT INTO `Actions`(name, description) 
+    VALUES ('Creado', 'El usuario creó la entidad.'), 
+    ('Modificado', 'El usuario modificó la entidad.'),
+    ('Eliminado', 'El usuario eliminó la entidad.'), 
+    ('Archivado', 'El usuario archivó la entidad.'), 
+    ('Asignado', 'El usuario asignó la entidad.');
    ```
   </li>
     <li>
-      Select - Join:
+      Select:
       
    ```sh
-    SELECT g.id, a.name as 'area', s.name as 'status'
-    FROM `Groups` as g
-    JOIN Areas as a
-    ON g.area = a.id
-    JOIN Status_group as s
-    ON g.status = s.id
-    WHERE is_active = 1;
+    SELECT * FROM `Actions`;
    ```
   </li>
       <li>
       Update:
       
    ```sh
-    UPDATE `Groups` SET `status` = 2 WHERE `id`= 1;
-    UPDATE `Groups` SET `is_active` = 0 WHERE `id`= 2;
-    UPDATE `Groups` SET `area` = 3 WHERE `id`= 3;
+    UPDATE `Actions` SET name = 'nombre', description = 'descripcion' WHERE id = 8; 
    ```
   </li>
       <li>
       Delete:
       
    ```sh
-    DELETE FROM `Groups` WHERE `id`= 1;
+    DELETE FROM `Actions` WHERE id<10;
    ```
   </li>
   </ul>
