@@ -95,14 +95,26 @@ La estructura de la base de datos para el proyecto está organizada de la siguie
 
 <details>
   <summary> Areas </summary>
-  <ol>
+  <ul>
     <li>  
-      <p> - Create: </p>  
+      <p> Create: </p>  
       <a href="https://github.com/user-attachments/assets/aee65aa2-15f2-4f63-b3b1-65d65326a802">
-        <img src="https://github.com/user-attachments/assets/aee65aa2-15f2-4f63-b3b1-65d65326a802" alt="Logo" width="500" height="250" style="border-radius:15px;">
+        <img src="https://github.com/user-attachments/assets/aee65aa2-15f2-4f63-b3b1-65d65326a802" alt="Logo" width="550" height="200" style="border-radius:15px;">
       </a>
     </li>
-  </ol>
+    <li>  
+      <p> Insert: </p>  
+      <a href="https://github.com/user-attachments/assets/d60cbd25-03f4-49b4-b818-158e000c6e08">
+        <img src="https://github.com/user-attachments/assets/d60cbd25-03f4-49b4-b818-158e000c6e08" alt="Logo" width="550" height="200" style="border-radius:15px;">
+      </a>
+    </li>
+    <li>  
+      <p> Select - Join: </p>  
+      <a href="https://github.com/user-attachments/assets/635e6dcc-dc2a-4bc2-bc73-581b79b9922f">
+        <img src="https://github.com/user-attachments/assets/635e6dcc-dc2a-4bc2-bc73-581b79b9922f" alt="Logo" width="550" height="200" style="border-radius:15px;">
+      </a>
+    </li>
+  </ul>
 </details>
 
 - Tasks
