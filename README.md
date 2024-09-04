@@ -5,7 +5,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/user-attachments/assets/825259a5-6541-41a5-bca8-17c579a46380">
-    <img src="https://github.com/user-attachments/assets/825259a5-6541-41a5-bca8-17c579a46380" alt="Logo" width="300" height="250" style="border-radius:15px;">
+    <img src="https://github.com/user-attachments/assets/825259a5-6541-41a5-bca8-17c579a46380" alt="Logo" width="300" height="350" style="border-radius:15px;">
   </a>
 
   <h3 align="center"> Kanbanate IT · Online task manager </h3>
@@ -85,10 +85,39 @@ Para este proyecto se usaron las siguientes técnologias<!--, lenguajes y librer
 <p align="right">(<a href="#readme-top">Volver al inicio</a>)</p>
 
 <a id="project-structure"></a>
-## Estructura del Proyecto
+## Estructura de la base de datos
 
-La estructura del proyecto está organizada de la siguiente manera:
+La estructura de la base de datos para el proyecto está organizada de la siguiente manera:
 
+![DB_Kanban](https://github.com/user-attachments/assets/eddc9555-ab9f-497e-9324-99a7f53af68b)
+
+Tablas de entidades:
+
+Areas
+Tasks
+Groups
+Employees
+Users
+Messages
+
+Tablas de relaciones:
+
+rel_Areas_Tasks
+rel_Groups_Tasks
+rel_Groups_Employees
+rel_Users_Tasks
+rel_Users_Actions
+
+Tablas de estatus, tipos de relaciones y acciones:
+
+Status_area
+Status_task
+Status_group
+Status_employee
+Relation_types
+Actions
+
+<!--
 ```plaintext
 
 └── 
@@ -104,8 +133,10 @@ La estructura del proyecto está organizada de la siguiente manera:
             ├── 
             └── 
 ```
+-->
 
-<p align="right">(<a href="#readme-top">Volver al inicio</a>)</p>
+<p align="right">(<a href="#readme-top">Volver al in![DB_Kanban](https://github.com/user-attachments/assets/1e58100b-bdd7-4c81-9a75-1b8d0ac167aa)
+icio</a>)</p>
 
 <!--
 <a id="design"></a>
