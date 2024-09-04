@@ -98,22 +98,21 @@ La estructura de la base de datos para el proyecto está organizada de la siguie
   <ul>
     <li>
       Create:
-      
-      ```sh
-      CREATE TABLE IF NOT EXISTS `Areas` (
-        `id` INT auto_increment PRIMARY KEY,
-        `name` VARCHAR(50) NOT NULL UNIQUE,
-        `description` VARCHAR(100),
-        `status` INT NOT NULL DEFAULT 1,
-        FOREIGN KEY (`status`) REFERENCES `Status_area`(`id`),
-        INDEX (`name`)
-      );
-      ```
+
+   ```sh
+     CREATE TABLE IF NOT EXISTS `Areas` (
+      `id` INT auto_increment PRIMARY KEY,
+      `name` VARCHAR(50) NOT NULL UNIQUE,
+      `description` VARCHAR(100),
+      `status` INT NOT NULL DEFAULT 1,
+      FOREIGN KEY (`status`) REFERENCES `Status_area`(`id`),
+      INDEX (`name`)
+   ```
   </li>
     <li>
       Insert:
-      
-      ```sh
+
+   ```sh
       INSERT INTO `Areas`(`name`, `description`)
       VALUES 
         ('Producción','Creación de productos para la venta.'),
@@ -121,12 +120,12 @@ La estructura de la base de datos para el proyecto está organizada de la siguie
         ('Administración','Encargada de la operación de la empresaa en sentido general, desde contrataciones, pagos a personal.'),
         ('Ventas', 'Distribuye los productos a cambio de dinero.'),
         ('Contabilidad', 'Llevan el registro contable de la actividad financiera de la empresa.');
-      ```
+   ```
   </li>
     <li>
       Select - Join:
       
-      ```sh
+   ```sh
       SELECT g.id, a.name as 'area', s.name as 'status'
       FROM `Groups` as g
       JOIN Areas as a
@@ -134,8 +133,8 @@ La estructura de la base de datos para el proyecto está organizada de la siguie
       JOIN Status_group as s
       ON g.status = s.id
       WHERE is_active = 1;
-      ```
-    </li>
+   ```
+  </li>
   </ul>
 </details>
 
