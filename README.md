@@ -497,13 +497,17 @@ La estructura de la base de datos para el proyecto está organizada de la siguie
       Select - Join:
       
    ```sh
-    SELECT g.id, a.name as 'area', s.name as 'status'
-    FROM `Groups` as g
-    JOIN Areas as a
-    ON g.area = a.id
-    JOIN Status_group as s
-    ON g.status = s.id
-    WHERE is_active = 1;
+    SELECT 
+        rat.id,
+        a.name AS area_name,
+        t.name AS task_name,
+        rat.is_current
+    FROM 
+        rel_Areas_Tasks AS rat
+    JOIN 
+        Areas AS a ON rat.area = a.id
+    JOIN 
+        Tasks AS t ON rat.task = t.id;
    ```
   </li>
       <li>
@@ -554,13 +558,17 @@ La estructura de la base de datos para el proyecto está organizada de la siguie
       Select - Join:
       
    ```sh
-    SELECT g.id, a.name as 'area', s.name as 'status'
-    FROM `Groups` as g
-    JOIN Areas as a
-    ON g.area = a.id
-    JOIN Status_group as s
-    ON g.status = s.id
-    WHERE is_active = 1;
+    SELECT 
+        rgt.id,
+        g.id AS group_id,
+        g.status AS group_status,
+        t.name AS task_name
+    FROM 
+        rel_Groups_Tasks AS rgt
+    JOIN 
+        Groups AS g ON rgt.group = g.id
+    JOIN 
+        Tasks AS t ON rgt.task = t.id;
    ```
   </li>
       <li>
@@ -611,13 +619,17 @@ La estructura de la base de datos para el proyecto está organizada de la siguie
       Select - Join:
       
    ```sh
-    SELECT g.id, a.name as 'area', s.name as 'status'
-    FROM `Groups` as g
-    JOIN Areas as a
-    ON g.area = a.id
-    JOIN Status_group as s
-    ON g.status = s.id
-    WHERE is_active = 1;
+    SELECT 
+        rge.id,
+        g.id AS group_id,
+        e.name AS employee_name,
+        e.surname AS employee_surname
+    FROM 
+        rel_Groups_Employees AS rge
+    JOIN 
+        Groups AS g ON rge.group = g.id
+    JOIN 
+        Employees AS e ON rge.employee = e.id;
    ```
   </li>
       <li>
@@ -671,13 +683,19 @@ La estructura de la base de datos para el proyecto está organizada de la siguie
       Select - Join:
       
    ```sh
-    SELECT g.id, a.name as 'area', s.name as 'status'
-    FROM `Groups` as g
-    JOIN Areas as a
-    ON g.area = a.id
-    JOIN Status_group as s
-    ON g.status = s.id
-    WHERE is_active = 1;
+    SELECT 
+        rut.id,
+        u.username AS user_name,
+        t.name AS task_name,
+        rt.name AS relation_type
+    FROM 
+        rel_Users_Tasks AS rut
+    JOIN 
+        Users AS u ON rut.user = u.id
+    JOIN 
+        Tasks AS t ON rut.task = t.id
+    JOIN 
+        Relation_types AS rt ON rut.relation_type = rt.id;
    ```
   </li>
       <li>
@@ -732,13 +750,19 @@ La estructura de la base de datos para el proyecto está organizada de la siguie
       Select - Join:
       
    ```sh
-    SELECT g.id, a.name as 'area', s.name as 'status'
-    FROM `Groups` as g
-    JOIN Areas as a
-    ON g.area = a.id
-    JOIN Status_group as s
-    ON g.status = s.id
-    WHERE is_active = 1;
+    SELECT 
+        rua.id,
+        u.username AS user_name,
+        a.name AS action_name,
+        rua.objective_type,
+        rua.objective_id,
+        rua.created_at
+    FROM 
+        rel_Users_Actions AS rua
+    JOIN 
+        Users AS u ON rua.user = u.id
+    JOIN 
+        Actions AS a ON rua.action = a.id;
    ```
   </li>
       <li>
