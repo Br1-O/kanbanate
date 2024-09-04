@@ -95,7 +95,7 @@ La estructura de la base de datos para el proyecto está organizada de la siguie
 
 <details>
   <summary> Areas </summary>
-  <br><br>
+  <br>
   <ul>
     <li>
       Create:
@@ -127,13 +127,10 @@ La estructura de la base de datos para el proyecto está organizada de la siguie
       Select - Join:
       
    ```sh
-      SELECT g.id, a.name as 'area', s.name as 'status'
-      FROM `Groups` as g
-      JOIN Areas as a
-      ON g.area = a.id
-      JOIN Status_group as s
-      ON g.status = s.id
-      WHERE is_active = 1;
+    SELECT a.name, a.description, s.name as 'status'
+    FROM Areas as a
+    INNER JOIN Status_area as s
+    ON a.status = s.id;
    ```
   </li>
       <li>
@@ -153,8 +150,127 @@ La estructura de la base de datos para el proyecto está organizada de la siguie
   </ul>
 </details>
 
-- Tasks
-- Groups
+<details>
+  <summary> Tasks </summary>
+  <br>
+  <ul>
+    <li>
+      Create:
+
+   ```sh
+    CREATE TABLE IF NOT EXISTS `Tasks` (
+      `id` INT auto_increment PRIMARY KEY,
+      `name` VARCHAR(50) NOT NULL,
+      `description` VARCHAR(250),
+      `status` INT NOT NULL DEFAULT 1,
+      `deadline` DATE,
+      `date_start` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+      `date_last_update` DATETIME,
+      `date_end` DATETIME,
+      `is_active` TINYINT(1) NOT NULL DEFAULT 1,
+      FOREIGN KEY (`status`) REFERENCES `Status_task`(`id`),
+      INDEX (`name`)
+    );
+   ```
+  </li>
+    <li>
+      Insert:
+
+   ```sh
+    INSERT INTO `Tasks`(`name`, `description`, `status`, deadline, date_start, date_last_update, date_end, is_active)
+    VALUES('Organizar reuniones','Coordinar fechas, preparar agendas y tomar notas.','1','2024/12/04','2024/09/02','2024/09/02 12:02:25','2024/12/04 00:00:00 ','1'),
+    ('Presupuestación','Desarrollar y revisar presupuestos anuales o trimestrales','2','2024/12/04','2024/09/02','2024/09/02 12:02:25','2024/12/04 00:00:00 ','1'),
+    ('Capacitación','Organizar sesiones de formación y desarrollo para empleados','4','2024/12/04','2024/09/02','2024/09/02 12:02:25','2024/12/04 00:00:00 ','0');
+   ```
+  </li>
+    <li>
+      Select - Join:
+      
+   ```sh
+    SELECT t.name, t.description, t.deadline, t.date_start, t.date_last_update, t.date_end, s.name as 'status'
+    FROM Tasks as t
+    INNER JOIN Status_task as s
+    ON t.status = s.id
+    WHERE t.is_active = 1;
+   ```
+  </li>
+      <li>
+      Update:
+      
+   ```sh
+    UPDATE `Tasks` SET status='3' WHERE name= 'Organizar reuniones';
+   ```
+  </li>
+      <li>
+      Delete:
+      
+   ```sh
+    DELETE FROM `Tasks` WHERE name= 'Capacitación';
+   ```
+  </li>
+  </ul>
+</details>
+
+<details>
+  <summary> Groups </summary>
+  <br>
+  <ul>
+    <li>
+      Create:
+
+   ```sh
+    CREATE TABLE IF NOT EXISTS `Groups` (
+      `id` INT auto_increment PRIMARY KEY,
+      `area` INT,
+      `status` INT NOT NULL DEFAULT 1,
+      `is_active` TINYINT(1) NOT NULL DEFAULT 1,
+      FOREIGN KEY (`area`) REFERENCES `Areas`(`id`),
+      FOREIGN KEY (`status`) REFERENCES `Status_group`(`id`)
+    );
+   ```
+  </li>
+    <li>
+      Insert:
+
+   ```sh
+    INSERT INTO `Groups` (area, `status`)
+    VALUES (1, 1),
+           (2, 1),
+           (3, 1);
+   ```
+  </li>
+    <li>
+      Select - Join:
+      
+   ```sh
+    SELECT g.id, a.name as 'area', s.name as 'status'
+    FROM `Groups` as g
+    JOIN Areas as a
+    ON g.area = a.id
+    JOIN Status_group as s
+    ON g.status = s.id
+    WHERE is_active = 1;
+   ```
+  </li>
+      <li>
+      Update:
+      
+   ```sh
+    UPDATE `Groups` SET `status` = 2 WHERE `id`= 1;
+    UPDATE `Groups` SET `is_active` = 0 WHERE `id`= 2;
+    UPDATE `Groups` SET `area` = 3 WHERE `id`= 3;
+   ```
+  </li>
+      <li>
+      Delete:
+      
+   ```sh
+    DELETE FROM `Groups` WHERE `id`= 1;
+   ```
+  </li>
+  </ul>
+</details>
+
 - Employees
 - Users
 - Messages
