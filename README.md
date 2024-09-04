@@ -473,13 +473,13 @@ La estructura de la base de datos para el proyecto está organizada de la siguie
       Create:
 
    ```sh
-    CREATE TABLE IF NOT EXISTS `Groups` (
+    CREATE TABLE IF NOT EXISTS `rel_Areas_Tasks` (
       `id` INT auto_increment PRIMARY KEY,
-      `area` INT,
-      `status` INT NOT NULL DEFAULT 1,
-      `is_active` TINYINT(1) NOT NULL DEFAULT 1,
+      `area` INT NOT NULL,
+      `task` INT NOT NULL,
+      `is_current` TINYINT(1) NOT NULL DEFAULT 1,
       FOREIGN KEY (`area`) REFERENCES `Areas`(`id`),
-      FOREIGN KEY (`status`) REFERENCES `Status_group`(`id`)
+      FOREIGN KEY (`task`) REFERENCES `Tasks`(`id`)
     );
    ```
   </li>
@@ -487,10 +487,10 @@ La estructura de la base de datos para el proyecto está organizada de la siguie
       Insert:
 
    ```sh
-    INSERT INTO `Groups` (area, `status`)
-    VALUES (1, 1),
-           (2, 1),
-           (3, 1);
+    INSERT INTO `rel_Areas_Tasks`(area, task, is_current)
+    VALUES('3','3','1'),
+    ('2','1', '1'),
+    ('5','2','2');
    ```
   </li>
     <li>
@@ -510,16 +510,14 @@ La estructura de la base de datos para el proyecto está organizada de la siguie
       Update:
       
    ```sh
-    UPDATE `Groups` SET `status` = 2 WHERE `id`= 1;
-    UPDATE `Groups` SET `is_active` = 0 WHERE `id`= 2;
-    UPDATE `Groups` SET `area` = 3 WHERE `id`= 3;
+    UPDATE `rel_Areas_Tasks` SET area= 5 WHERE task= 2;
    ```
   </li>
       <li>
       Delete:
       
    ```sh
-    DELETE FROM `Groups` WHERE `id`= 1;
+    DELETE FROM `rel_Areas_Tasks` WHERE area= 2;
    ```
   </li>
   </ul>
@@ -533,13 +531,12 @@ La estructura de la base de datos para el proyecto está organizada de la siguie
       Create:
 
    ```sh
-    CREATE TABLE IF NOT EXISTS `Groups` (
+    CREATE TABLE IF NOT EXISTS `rel_Groups_Tasks` (
       `id` INT auto_increment PRIMARY KEY,
-      `area` INT,
-      `status` INT NOT NULL DEFAULT 1,
-      `is_active` TINYINT(1) NOT NULL DEFAULT 1,
-      FOREIGN KEY (`area`) REFERENCES `Areas`(`id`),
-      FOREIGN KEY (`status`) REFERENCES `Status_group`(`id`)
+      `group` INT NOT NULL,
+      `task` INT NOT NULL,
+      FOREIGN KEY (`task`) REFERENCES `Tasks`(`id`),
+      FOREIGN KEY (`group`) REFERENCES `Groups`(`id`)
     );
    ```
   </li>
@@ -547,10 +544,10 @@ La estructura de la base de datos para el proyecto está organizada de la siguie
       Insert:
 
    ```sh
-    INSERT INTO `Groups` (area, `status`)
-    VALUES (1, 1),
-           (2, 1),
-           (3, 1);
+    INSERT INTO `rel_Groups_Tasks`(`group`, task)
+    VALUES('2','1'),
+    ('1','2'),
+    ('3','3');
    ```
   </li>
     <li>
@@ -570,16 +567,14 @@ La estructura de la base de datos para el proyecto está organizada de la siguie
       Update:
       
    ```sh
-    UPDATE `Groups` SET `status` = 2 WHERE `id`= 1;
-    UPDATE `Groups` SET `is_active` = 0 WHERE `id`= 2;
-    UPDATE `Groups` SET `area` = 3 WHERE `id`= 3;
+    UPDATE `rel_Groups_Tasks` SET `group`= 4 WHERE task= 4;
    ```
   </li>
       <li>
       Delete:
       
    ```sh
-    DELETE FROM `Groups` WHERE `id`= 1;
+    DELETE FROM `rel_Groups_Tasks` WHERE `group`= 3;
    ```
   </li>
   </ul>
@@ -593,13 +588,12 @@ La estructura de la base de datos para el proyecto está organizada de la siguie
       Create:
 
    ```sh
-    CREATE TABLE IF NOT EXISTS `Groups` (
+    CREATE TABLE IF NOT EXISTS `rel_Groups_Employees` (
       `id` INT auto_increment PRIMARY KEY,
-      `area` INT,
-      `status` INT NOT NULL DEFAULT 1,
-      `is_active` TINYINT(1) NOT NULL DEFAULT 1,
-      FOREIGN KEY (`area`) REFERENCES `Areas`(`id`),
-      FOREIGN KEY (`status`) REFERENCES `Status_group`(`id`)
+      `group` INT NOT NULL,
+      `employee` INT NOT NULL,
+      FOREIGN KEY (`employee`) REFERENCES `Employees`(`id`),
+      FOREIGN KEY (`group`) REFERENCES `Groups`(`id`)
     );
    ```
   </li>
@@ -607,10 +601,10 @@ La estructura de la base de datos para el proyecto está organizada de la siguie
       Insert:
 
    ```sh
-    INSERT INTO `Groups` (area, `status`)
+    INSERT INTO `rel_Groups_Employees` (`group`, employee)
     VALUES (1, 1),
-           (2, 1),
-           (3, 1);
+           (2, 2),
+           (3, 3);
    ```
   </li>
     <li>
@@ -630,16 +624,15 @@ La estructura de la base de datos para el proyecto está organizada de la siguie
       Update:
       
    ```sh
-    UPDATE `Groups` SET `status` = 2 WHERE `id`= 1;
-    UPDATE `Groups` SET `is_active` = 0 WHERE `id`= 2;
-    UPDATE `Groups` SET `area` = 3 WHERE `id`= 3;
+    UPDATE `rel_Groups_Employees` SET `employee`= 1 WHERE `id`= 2;
+    UPDATE `rel_Groups_Employees` SET `group`= 1 WHERE `id`= 1;
    ```
   </li>
       <li>
       Delete:
       
    ```sh
-    DELETE FROM `Groups` WHERE `id`= 1;
+    DELETE FROM `rel_Groups_Employees` WHERE `id`= 1;
    ```
   </li>
   </ul>
@@ -653,13 +646,14 @@ La estructura de la base de datos para el proyecto está organizada de la siguie
       Create:
 
    ```sh
-    CREATE TABLE IF NOT EXISTS `Groups` (
+    CREATE TABLE IF NOT EXISTS `rel_Users_Tasks` (
       `id` INT auto_increment PRIMARY KEY,
-      `area` INT,
-      `status` INT NOT NULL DEFAULT 1,
-      `is_active` TINYINT(1) NOT NULL DEFAULT 1,
-      FOREIGN KEY (`area`) REFERENCES `Areas`(`id`),
-      FOREIGN KEY (`status`) REFERENCES `Status_group`(`id`)
+      `user` INT NOT NULL,
+      `task` INT NOT NULL,
+      `relation_type` INT NOT NULL,
+      FOREIGN KEY (`relation_type`) REFERENCES `Relation_types`(`id`),
+      FOREIGN KEY (`user`) REFERENCES `Users`(`id`),
+      FOREIGN KEY (`task`) REFERENCES `Tasks`(`id`)
     );
    ```
   </li>
@@ -667,10 +661,10 @@ La estructura de la base de datos para el proyecto está organizada de la siguie
       Insert:
 
    ```sh
-    INSERT INTO `Groups` (area, `status`)
-    VALUES (1, 1),
-           (2, 1),
-           (3, 1);
+    INSERT INTO `rel_Users_Tasks`(`user`, task, relation_type)
+    VALUES('1','2','3'),
+    ('2','1','4'),
+    ('3','2','1');
    ```
   </li>
     <li>
@@ -690,16 +684,14 @@ La estructura de la base de datos para el proyecto está organizada de la siguie
       Update:
       
    ```sh
-    UPDATE `Groups` SET `status` = 2 WHERE `id`= 1;
-    UPDATE `Groups` SET `is_active` = 0 WHERE `id`= 2;
-    UPDATE `Groups` SET `area` = 3 WHERE `id`= 3;
+    UPDATE `rel_Users_Tasks` SET task= 3 WHERE user= 1;	
    ```
   </li>
       <li>
       Delete:
       
    ```sh
-    DELETE FROM `Groups` WHERE `id`= 1;
+    DELETE FROM `rel_Users_Tasks` WHERE `user`= 2;
    ```
   </li>
   </ul>
@@ -713,13 +705,16 @@ La estructura de la base de datos para el proyecto está organizada de la siguie
       Create:
 
    ```sh
-    CREATE TABLE IF NOT EXISTS `Groups` (
+    CREATE TABLE IF NOT EXISTS `rel_Users_Actions` (
       `id` INT auto_increment PRIMARY KEY,
-      `area` INT,
-      `status` INT NOT NULL DEFAULT 1,
+      `user` INT NOT NULL,
+      `action` INT NOT NULL,
+      `objective_type` ENUM('user', 'task', 'message', 'group', 'area'),
+      `objective_id` INT,
+      `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
       `is_active` TINYINT(1) NOT NULL DEFAULT 1,
-      FOREIGN KEY (`area`) REFERENCES `Areas`(`id`),
-      FOREIGN KEY (`status`) REFERENCES `Status_group`(`id`)
+      FOREIGN KEY (`action`) REFERENCES `Actions`(`id`),
+      FOREIGN KEY (`user`) REFERENCES `Users`(`id`)
     );
    ```
   </li>
@@ -727,10 +722,10 @@ La estructura de la base de datos para el proyecto está organizada de la siguie
       Insert:
 
    ```sh
-    INSERT INTO `Groups` (area, `status`)
-    VALUES (1, 1),
-           (2, 1),
-           (3, 1);
+    INSERT INTO `rel_Users_Actions` (`user`, `action`, objective_type, objective_id, is_active)
+    VALUES (1, 1, 'task', 1, 1),
+           (2, 2, 'task', 2, 1),
+           (3, 3, 'task', 3, 1);
    ```
   </li>
     <li>
@@ -750,16 +745,16 @@ La estructura de la base de datos para el proyecto está organizada de la siguie
       Update:
       
    ```sh
-    UPDATE `Groups` SET `status` = 2 WHERE `id`= 1;
-    UPDATE `Groups` SET `is_active` = 0 WHERE `id`= 2;
-    UPDATE `Groups` SET `area` = 3 WHERE `id`= 3;
+    UPDATE `rel_Users_Actions` SET `action`= 2 WHERE `id`= 1;
+    UPDATE `rel_Users_Actions` SET `objective_id`= 3 WHERE `id`= 2;
+    UPDATE `rel_Users_Actions` SET `objective_type`= 'user' WHERE `id`= 3;
    ```
   </li>
       <li>
       Delete:
       
    ```sh
-    DELETE FROM `Groups` WHERE `id`= 1;
+    DELETE FROM `rel_Users_Actions` WHERE `id`= 1;
    ```
   </li>
   </ul>
