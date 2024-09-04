@@ -92,7 +92,19 @@ La estructura de la base de datos para el proyecto está organizada de la siguie
 ![DB_Kanban](https://github.com/user-attachments/assets/eddc9555-ab9f-497e-9324-99a7f53af68b)
 
 **Tablas de entidades:**
-- Areas
+
+<details>
+  <summary> Areas </summary>
+  <ol>
+    <li>  
+      <p> - Create: </p>  
+      <a href="https://github.com/user-attachments/assets/aee65aa2-15f2-4f63-b3b1-65d65326a802">
+        <img src="https://github.com/user-attachments/assets/aee65aa2-15f2-4f63-b3b1-65d65326a802" alt="Logo" width="500" height="250" style="border-radius:15px;">
+      </a>
+    </li>
+  </ol>
+</details>
+
 - Tasks
 - Groups
 - Employees
