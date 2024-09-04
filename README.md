@@ -53,7 +53,7 @@ Para este proyecto se usaron las siguientes técnologias<!--, lenguajes y librer
 
 ![MySQL](https://img.shields.io/badge/MySQL-4479A1?style=for-the-badge&logo=mysql&logoColor=white)
 ![MySQL Workbench](https://img.shields.io/badge/MySQL_Workbench-00758F?style=for-the-badge&logo=mysql&logoColor=white)
-![Lucid.app](https://img.shields.io/badge/Lucip.app-FFAB00?style=for-the-badge&logo=data:image/svg+xml;base64,<BASE64_ENCODED_LOGO_HERE>&logoColor=white)
+![Lucid.app](https://img.shields.io/badge/Lucid.app-FFAB00?style=for-the-badge&logo=data:image/svg+xml;base64,<BASE64_ENCODED_LOGO_HERE>&logoColor=white)
 
 <!--#### Desarrollo en general:
 
