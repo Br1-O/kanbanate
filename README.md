@@ -98,21 +98,39 @@ La estructura de la base de datos para el proyecto está organizada de la siguie
   <ul>
     <li>  
       <p> Create: </p>  
-      <a href="https://github.com/user-attachments/assets/aee65aa2-15f2-4f63-b3b1-65d65326a802">
-        <img src="https://github.com/user-attachments/assets/aee65aa2-15f2-4f63-b3b1-65d65326a802" alt="Logo" width="550" height="200" style="border-radius:15px;">
-      </a>
+        ```sh
+          CREATE TABLE IF NOT EXISTS `Areas` (
+          `id` INT auto_increment PRIMARY KEY,
+          `name` VARCHAR(50) NOT NULL UNIQUE,
+          `description` VARCHAR(100),
+          `status` INT NOT NULL DEFAULT 1,
+          FOREIGN KEY (`status`) REFERENCES `Status_area`(`id`),
+          INDEX (`name`)
+          );
+        ```
     </li>
     <li>  
       <p> Insert: </p>  
-      <a href="https://github.com/user-attachments/assets/d60cbd25-03f4-49b4-b818-158e000c6e08">
-        <img src="https://github.com/user-attachments/assets/d60cbd25-03f4-49b4-b818-158e000c6e08" alt="Logo" width="550" height="200" style="border-radius:15px;">
-      </a>
+        ```sh
+          INSERT INTO `Areas`(`name`, `description`)
+          VALUES ('Producción','Creación de productos para la venta.'),
+          ('Dirección','Controla todas las áreas de trabajo que se encuentran en la empresa.'),
+          ('Administración','Encargada de la operación de la empresaa en sentido general, desde contrataciones, pagos a personal.'),
+          ('Ventas', 'Distribuye los productos a cambio de dinero.'),
+          ('Contabilidad', 'Llevan el registro contable de la actividad financiera de la empresa.');
+        ```
     </li>
     <li>  
       <p> Select - Join: </p>  
-      <a href="https://github.com/user-attachments/assets/635e6dcc-dc2a-4bc2-bc73-581b79b9922f">
-        <img src="https://github.com/user-attachments/assets/635e6dcc-dc2a-4bc2-bc73-581b79b9922f" alt="Logo" width="550" height="200" style="border-radius:15px;">
-      </a>
+        ```sh
+          SELECT g.id, a.name as 'area', s.name as 'status'
+          FROM `Groups` as g
+          JOIN Areas as a
+          ON g.area = a.id
+          JOIN Status_group as s
+          ON g.status = s.id
+          WHERE is_active = 1;
+        ```
     </li>
   </ul>
 </details>
