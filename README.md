@@ -97,7 +97,7 @@ La estructura de la base de datos para el proyecto está organizada de la siguie
   <summary> Areas </summary>
   <ul>
     <li>  
-      <p>Create:</p>  
+      Create:
       
       ```sh
       CREATE TABLE IF NOT EXISTS `Areas` (
@@ -111,7 +111,7 @@ La estructura de la base de datos para el proyecto está organizada de la siguie
       ```
   </li>
   <li>  
-    <p>Insert:</p>  
+    Insert:  
       
       ```sh
       INSERT INTO `Areas`(`name`, `description`)
@@ -124,7 +124,7 @@ La estructura de la base de datos para el proyecto está organizada de la siguie
       ```
   </li>
   <li>  
-    <p>Select - Join:</p>  
+    Select - Join:
       
       ```sh
       SELECT g.id, a.name as 'area', s.name as 'status'
