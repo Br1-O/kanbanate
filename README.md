@@ -495,16 +495,19 @@ La estructura de la base de datos para el proyecto está organizada de la siguie
    ```sh
     SELECT 
         rat.id,
-        a.name AS area_name,
-        t.name AS task_name,
-        rat.is_current
+        a.name AS 'area',
+        t.name AS 'task'
     FROM 
         rel_Areas_Tasks AS rat
     JOIN 
         Areas AS a ON rat.area = a.id
     JOIN 
-        Tasks AS t ON rat.task = t.id;
+        Tasks AS t ON rat.task = t.id
+    WHERE rat.is_current = 1;
    ```
+
+![Captura de pantalla 2024-09-06 153437](https://github.com/user-attachments/assets/f2a1984c-46ac-4a8e-944c-0f4b518ad5c3)
+
   </li>
       <li>
       Update:
@@ -556,16 +559,23 @@ La estructura de la base de datos para el proyecto está organizada de la siguie
    ```sh
     SELECT 
         rgt.id,
-        g.id AS group_id,
-        g.status AS group_status,
-        t.name AS task_name
+        g.id AS 'group',
+        s.name AS 'group status',
+        t.name AS 'task'
     FROM 
         rel_Groups_Tasks AS rgt
     JOIN 
         Groups AS g ON rgt.group = g.id
+    JOIN
+    	Status_group AS s ON g.status = s.id
     JOIN 
-        Tasks AS t ON rgt.task = t.id;
+        Tasks AS t ON rgt.task = t.id
+    WHERE g.is_active = 1
+    ORDER BY g.id;
    ```
+
+![Captura de pantalla 2024-09-06 153732](https://github.com/user-attachments/assets/97356c89-abe5-494c-b65d-a175c3559cbe)
+
   </li>
       <li>
       Update:
@@ -617,7 +627,7 @@ La estructura de la base de datos para el proyecto está organizada de la siguie
    ```sh
     SELECT 
         rge.id,
-        g.id AS group_id,
+        g.id AS 'group',
         e.name AS employee_name,
         e.surname AS employee_surname
     FROM 
@@ -625,8 +635,12 @@ La estructura de la base de datos para el proyecto está organizada de la siguie
     JOIN 
         Groups AS g ON rge.group = g.id
     JOIN 
-        Employees AS e ON rge.employee = e.id;
+        Employees AS e ON rge.employee = e.id
+    WHERE e.is_active = 1;
    ```
+
+![Captura de pantalla 2024-09-06 153950](https://github.com/user-attachments/assets/b6d6d13c-0a3b-489b-a5a7-c3a54f789439)
+
   </li>
       <li>
       Update:
@@ -680,19 +694,23 @@ La estructura de la base de datos para el proyecto está organizada de la siguie
       
    ```sh
     SELECT 
-        rut.id,
-        u.username AS user_name,
-        t.name AS task_name,
-        rt.name AS relation_type
-    FROM 
-        rel_Users_Tasks AS rut
-    JOIN 
-        Users AS u ON rut.user = u.id
-    JOIN 
-        Tasks AS t ON rut.task = t.id
-    JOIN 
-        Relation_types AS rt ON rut.relation_type = rt.id;
+            rut.id,
+            u.username AS user_name,
+            t.name AS task_name,
+            rt.name AS relation_type
+        FROM 
+            rel_Users_Tasks AS rut
+        JOIN 
+            Users AS u ON rut.user = u.id
+        JOIN 
+            Tasks AS t ON rut.task = t.id
+        JOIN 
+            Relation_types AS rt ON rut.relation_type = rt.id
+    	WHERE u.is_active= 1 and t.is_active= 1;
    ```
+
+![Captura de pantalla 2024-09-06 155046](https://github.com/user-attachments/assets/4ed925e1-ca9b-4606-9a3c-0344cc1040df)
+
   </li>
       <li>
       Update:
@@ -760,6 +778,9 @@ La estructura de la base de datos para el proyecto está organizada de la siguie
     JOIN 
         Actions AS a ON rua.action = a.id;
    ```
+
+![Captura de pantalla 2024-09-06 154255](https://github.com/user-attachments/assets/3717ac0b-3e6b-4457-99c8-22ac094818ac)
+
   </li>
       <li>
       Update:
