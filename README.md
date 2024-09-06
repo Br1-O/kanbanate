@@ -13,7 +13,6 @@
   <p align="center">
     Sistema de gestión de tareas para proyectos colaborativos
     <br />
-    <!--<a href="https://br1-o.github.io/bakery-store"><strong> Ver sitio en producción »</strong></a> -->
   </p>
 </div>
 
@@ -24,11 +23,6 @@
     <li><a href="#about"> Sobre el proyecto</a></li>
     <li><a href="#develop-with">Desarrollado con</a></li>
     <li><a href="#project-structure">Estructura del proyecto </a></li>
-    <!--
-    <li><a href="#design">Diseño </a></li>
-    <li><a href="#preview">Vista previa </a></li>
-    <li><a href="#getting-started"> Cómo instalarlo</a></li>
-    -->
   </ol>
 </details>
 
@@ -55,32 +49,15 @@ Para este proyecto se usaron las siguientes técnologias y lenguajes<!-- y libre
 ![MySQL Workbench](https://img.shields.io/badge/MySQL_Workbench-00758F?style=for-the-badge&logo=mysql&logoColor=white)
 ![Lucid.app](https://img.shields.io/badge/Lucid.app-FFAB00?style=for-the-badge&logo=data:image/svg+xml;base64,<BASE64_ENCODED_LOGO_HERE>&logoColor=white)
 
-<!--#### Desarrollo en general:
-
-* [![JavaScript][JavaScript.com]][JavaScript-url]
-* [![CSS][CSS.com]][CSS-url]
-* [![HTML][HTML.com]][HTML-url]
-* [![Bootstrap][Bootstrap.com]][Bootstrap-url]
-
-#### Librerias para funcionalidades:
-
-[![AOS][AOS.com]][AOS-url]
-[![SweetAlert][SweetAlert.com]][SweetAlert-url]
--->
-
 #### Control de versionado: 
 <!--y deploy de demo:-->
 
 [![GitHub][GitHub.com]][GitHub-url]
 [![Git][Git.com]][Git-url]
-<!--
-[![GitHub Pages][GitHubPages.com]][GitHubPages-url]
--->
 
 #### Personalmente se optó para el desarrollo de este proyecto el uso de:
 
 [![VSCode][VSCode.com]][VSCode-url]
-<!-- [![LiveServer][LiveServer.com]][LiveServer-url] -->
 
 <p align="right">(<a href="#readme-top">Volver al inicio</a>)</p>
 
@@ -1060,6 +1037,8 @@ La estructura de la base de datos para el proyecto está organizada de la siguie
     SELECT * FROM `Relation_types`;
    ```
 
+![Captura de pantalla 2024-09-06 152635](https://github.com/user-attachments/assets/be748493-31de-4106-aafc-5114e3dddb3d)
+
   </li>
       <li>
       Update:
@@ -1111,6 +1090,9 @@ La estructura de la base de datos para el proyecto está organizada de la siguie
    ```sh
     SELECT * FROM `Actions`;
    ```
+
+![Captura de pantalla 2024-09-06 152653](https://github.com/user-attachments/assets/6b1d05e2-3603-4e57-bad0-f48277395526)
+
   </li>
       <li>
       Update:
@@ -1148,132 +1130,6 @@ La estructura de la base de datos para el proyecto está organizada de la siguie
 -->
 
 <p align="right">(<a href="#readme-top">Volver al inicio</a>)</p>
-
-<!--
-<a id="design"></a>
-## Diseño
-
-## Paleta de colores
-
-La paleta de colores usada para este proyecto fue:
-
-![Main Color](https://img.shields.io/badge/Main%20Color-rgb(0%2C%200%2C%200)-black) <br>
-![Secondary Color](https://img.shields.io/badge/Secondary%20Color-rgb(67%2C%2075%2C%2082)-darkgrey) <br>
-![Font Primary Color](https://img.shields.io/badge/Font%20Primary%20Color-rgb(237%2C%20236%2C%20238)-lightgrey) <br>
-![Font Secondary Color](https://img.shields.io/badge/Font%20Secondary%20Color-rgb(81%2C%2080%2C%2080)-grey) <br>
-![Footer Background Color](https://img.shields.io/badge/Footer%20Background%20Color-rgb(17%2C%2017%2C%2017)-black) <br>
-
-## Font
-
-El font usado para este proyecto fue: 
-* ![Font: Josefin Sans](https://img.shields.io/badge/Font-Josefin%20Sans-blue)
-
-## Logotipo
-
-El logo fue creado usando las herramientas de generación de imagenes de ![Gemini](https://img.shields.io/badge/Gemini-purple)
-
-<a id="preview"></a>
-## Vista previa
-
-#### Pagina Principal (path: '/')
-
-<a href="https://github.com/user-attachments/assets/60427fe9-9a30-4a34-8dad-bd6b9ce6b439" target="_blank">
-  <img src="https://github.com/user-attachments/assets/60427fe9-9a30-4a34-8dad-bd6b9ce6b439" alt="documentation-main1" width="800"/>
-</a>
-<a href="https://github.com/user-attachments/assets/9d748898-bf71-4f81-aabf-661218c24f29" target="_blank">
-  <img src="https://github.com/user-attachments/assets/9d748898-bf71-4f81-aabf-661218c24f29" alt="documentation-main2" width="800"/>
-</a>
-
-#### Tienda (path: '/#tienda')
-
-<a href="https://github.com/user-attachments/assets/e15435fc-9514-49d5-b75f-a07d16e287f4" target="_blank">
-  <img src="https://github.com/user-attachments/assets/e15435fc-9514-49d5-b75f-a07d16e287f4" alt="documentation-shop1" width="800"/>
-</a>
-<a href="https://github.com/user-attachments/assets/26a1b725-3d66-4b36-8d92-c443ba03805e" target="_blank">
-  <img src="https://github.com/user-attachments/assets/26a1b725-3d66-4b36-8d92-c443ba03805e" alt="documentation-shop3" width="800"/>
-</a>
-
-#### Producto (path: '/#tienda/[categoria]/[nombre-del-producto]')
-
-<a href="https://github.com/user-attachments/assets/167787e9-65dc-4f9e-9182-917a361a346e" target="_blank">
-  <img src="https://github.com/user-attachments/assets/167787e9-65dc-4f9e-9182-917a361a346e" alt="documentation-producto1" width="800"/>
-</a>
-<a href="https://github.com/user-attachments/assets/43a9ccf5-4f4b-44f1-86c7-640481555d54" target="_blank">
-  <img src="https://github.com/user-attachments/assets/43a9ccf5-4f4b-44f1-86c7-640481555d54" alt="documentation-producto2" width="800"/>
-</a>
-
-#### Contacto (path: '/#contacto')
-
-<a href="https://github.com/user-attachments/assets/c1357b49-cb57-4be3-a15d-f7350ce04192" target="_blank">
-  <img src="https://github.com/user-attachments/assets/c1357b49-cb57-4be3-a15d-f7350ce04192" alt="documentation-contact1" width="800"/>
-</a>
-<a href="https://github.com/user-attachments/assets/5299db71-c33f-4387-8c81-1558b19dbcf4" target="_blank">
-  <img src="https://github.com/user-attachments/assets/5299db71-c33f-4387-8c81-1558b19dbcf4" alt="documentation-contact2" width="800"/>
-</a>
-
-#### No encontrado (path: '/[no-válido]')
-
-<a href="https://github.com/user-attachments/assets/5f35193f-e7e0-4a9d-beb1-2af650cdef21" target="_blank">
-  <img src="https://github.com/user-attachments/assets/5f35193f-e7e0-4a9d-beb1-2af650cdef21" alt="documentation-notFound" width="800"/>
-</a>
-
-<a id="getting-started"></a>
--->
-
-<!-- GETTING STARTED -->
-<!--
-## Cómo comenzar a utilizarlo
-
-Si se desea, se puede descargar este proyecto y usarlo de forma local siguiendo los siguientes pasos:
-
-### Pre requisitos
-
-No se requiere tener ningún tipo de software especial instalado, bastando con un simple navegador web. 
-<br>
-Aunque sí se recomienda el uso de algún IDE, programa especializado para facilitar el desarrollo y visualización de código.
-<br>
-
-### Instalación
-
-A continuación se muestran los pasos a seguir para instalar este proyecto.
-
-#### Usando Git
-
-> 1. Navegar al directorio donde deseas instalar el proyecto
-   ```sh
-   cd /ruta/donde/deseas/instalar
-   ```
-
-> 2. Clonar el repositorio
-   ```sh
-   git clone https://github.com/Br1-O/bakery-store
-   ```
-
- > 3. Navegar al directorio del proyecto
-   ```sh
-  cd bakery-store
-   ```
-
-> 4. Abrir el archivo index.html en tu navegador web preferido
-
-#### Descarga manual desde Github
-
-> 1. Descargar el archivo .zip desde GitHub: [Link de descarga](https://github.com/Br1-O/bakery-store/archive/refs/heads/main.zip)
-
-> 2. Descomprimir el archivo .zip
-   ```sh
-   unzip bakery-store-main.zip
-   ```
-
- > 3. Navegar al directorio donde fue descomprimido
-   ```sh
-  cd bakery-store-main
-   ```
-> 4. Abrir el archivo index.html en tu navegador web preferido
-
-<p align="right">(<a href="#readme-top">Volver al inicio</a>)</p>
-
--->
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
